@@ -95,53 +95,57 @@
         $("#join").on('click', function (e) {
             e.preventDefault();
 
-            rtc.client = AgoraRTC.createClient({mode: "live", codec: "h264"});
-
-            // init client
-            rtc.client.init(option.appID, function () {
-                console.log("init success")
-
-                rtc.client.join(option.token ? option.token : null, option.channel, option.uid ? +option.uid : null, function (uid) {
-                    Toast.notice("join channel: " + option.channel + " success, uid: " + uid)
-                    console.log("join channel: " + option.channel + " success, uid: " + uid)
-                    rtc.joined = true
-
-                    rtc.params.uid = uid
-
-                    // create local stream
-                    rtc.localStream = AgoraRTC.createStream({
-                        streamID: rtc.params.uid,
-                        audio: true,
-                        video: true,
-                        screen: false,
-                        microphoneId: option.microphoneId,
-                        cameraId: option.cameraId
-                    })
-
-                    // initialize local stream. Callback function executed after intitialization is done
-                    rtc.localStream.init(function () {
-                        console.log("init local stream success")
-                        // play stream with html element id "local_stream"
-                        rtc.localStream.play("local_stream")
-
-                        // publish local stream
-                        //publish(rtc)
-                    }, function (err) {
-                        //Toast.error("stream init failed, please open console see more detail")
-                        console.error("init local stream failed ", err)
-                    })
-                }, function (err) {
-                    //Toast.error("client join failed, please open console see more detail")
-                    console.error("client join failed", err)
-                })
-            }, (err) => {
-                //Toast.error("client init failed, please open console see more detail")
-                console.error(err)
-            })
+            join(rtc, option);
 
         });
 
     });
+
+    function join(rtc, option) {
+        rtc.client = AgoraRTC.createClient({mode: "live", codec: "h264"});
+
+        // init client
+        rtc.client.init(option.appID, function () {
+            console.log("init success")
+
+            rtc.client.join(option.token ? option.token : null, option.channel, option.uid ? +option.uid : null, function (uid) {
+                Toast.notice("join channel: " + option.channel + " success, uid: " + uid)
+                console.log("join channel: " + option.channel + " success, uid: " + uid)
+                rtc.joined = true
+
+                rtc.params.uid = uid
+
+                // create local stream
+                rtc.localStream = AgoraRTC.createStream({
+                    streamID: rtc.params.uid,
+                    audio: true,
+                    video: true,
+                    screen: false,
+                    microphoneId: option.microphoneId,
+                    cameraId: option.cameraId
+                })
+
+                // initialize local stream. Callback function executed after intitialization is done
+                rtc.localStream.init(function () {
+                    console.log("init local stream success")
+                    // play stream with html element id "local_stream"
+                    rtc.localStream.play("local_stream")
+
+                    // publish local stream
+                    //publish(rtc)
+                }, function (err) {
+                    //Toast.error("stream init failed, please open console see more detail")
+                    console.error("init local stream failed ", err)
+                })
+            }, function (err) {
+                //Toast.error("client join failed, please open console see more detail")
+                console.error("client join failed", err)
+            })
+        }, (err) => {
+            //Toast.error("client init failed, please open console see more detail")
+            console.error(err)
+        });
+    }
 </script>
 </body>
 </html>
