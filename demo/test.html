@@ -50,7 +50,7 @@
 
     function demo() {
 
-        rtc.client = AgoraRTC.createClient({mode: 'live', codec: 'h264'});
+        rtc.client = AgoraRTC.createClient({mode: 'live', codec: 'vp8'});
 
         rtc.client.init(option.appID, () => {
             alert('初始化成功');
