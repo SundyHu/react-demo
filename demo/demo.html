@@ -18,6 +18,12 @@
 <script src="AgoraRTCSDK-3.1.1.js"></script>
 <script type="text/javascript">
     console.log("agora sdk version: " + AgoraRTC.VERSION + " compatible: " + AgoraRTC.checkSystemRequirements());
+
+    $(function () {
+        $("#join").click(function () {
+            alert(AgoraRTC.checkSystemRequirements());
+        })
+    });
 </script>
 </body>
 </html>
