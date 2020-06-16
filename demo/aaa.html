@@ -10,8 +10,8 @@
 <body>
 
 <div class="container">
-    <div style="margin:10px;auto;">
-        <button>加入频道</button>
+    <div style="margin:10px auto;">
+        <button id="join">加入频道</button>
     </div>
     <div class="video-grid" id="video">
         <div class="video-view">
@@ -27,10 +27,36 @@
 <script src="AgoraRTCSDK-3.1.1.js"></script>
 <script type="text/javascript">
 
+    const rtc = {
+        client: null,
+        joined: false,
+        published: false,
+        localStream: null,
+        remoteStreams: [],
+        params: {}
+    }
+
+    const option = {
+        appID: "d7bef4a65cf24ff382e16409ae72fbe3",
+        channel: "react-demo",
+        uid: null,
+        token: "006d7bef4a65cf24ff382e16409ae72fbe3IACwVpWN2oTrU2pevL4b8gdbor0zvazGKUXdVAAM1aDqqrurOf8AAAAAEACtIROL9nTpXgEAAQD0dOle"
+    };
+
     $(function () {
 
+        $("#join").on('click', function (e) {
+            alert('加入频道');
+            e.preventDefault();
+            join(rtc, option);
+        })
 
     });
+
+    join = function (rtc, option) {
+
+        alert('标本霜');
+    }
 </script>
 </body>
 </html>
