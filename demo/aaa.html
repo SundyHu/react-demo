@@ -54,7 +54,36 @@
 
     join = function (rtc, option) {
 
-        alert('标本霜');
+        alert('1111');
+        rtc.client = AgoraRTC.createClient({mode: "live", codec: "h264"});
+        rtc.client.init(option.appID, function () {
+            console.log("init success")
+
+            rtc.client.join(option.token ? option.token : null, option.channel, option.uid ? +option.uid : null, function (uid) {
+                Toast.notice("join channel: " + option.channel + " success, uid: " + uid)
+                console.log("join channel: " + option.channel + " success, uid: " + uid)
+                rtc.joined = true
+                rtc.params.uid = uid
+                rtc.localStream = AgoraRTC.createStream({
+                    streamID: rtc.params.uid,
+                    audio: true,
+                    video: true,
+                    screen: false
+                })
+
+                // initialize local stream. Callback function executed after intitialization is done
+                rtc.localStream.init(function () {
+                    console.log("init local stream success")
+                    rtc.localStream.play("local_stream")
+                }, function (err) {
+                    console.error("init local stream failed ", err)
+                })
+            }, function (err) {
+                console.error("client join failed", err)
+            });
+        }, (err) => {
+            console.error(err)
+        });
     }
 </script>
 </body>
