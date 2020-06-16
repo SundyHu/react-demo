@@ -528,28 +528,28 @@
     // This function automatically executes when a document is ready.
     $(function () {
       // This will fetch all the devices and will populate the UI for every device. (Audio and Video)
-      getDevices(function (devices) {
-        devices.audios.forEach(function (audio) {
-          $("<option/>", {
-            value: audio.value,
-            text: audio.name,
-          }).appendTo("#microphoneId")
-        })
-        devices.videos.forEach(function (video) {
-          $("<option/>", {
-            value: video.value,
-            text: video.name,
-          }).appendTo("#cameraId")
-        })
-        // To populate UI with different camera resolutions
-        resolutions.forEach(function (resolution) {
-          $("<option/>", {
-            value: resolution.value,
-            text: resolution.name
-          }).appendTo("#cameraResolution")
-        })
-        M.AutoInit()
-      })
+      // getDevices(function (devices) {
+      //   devices.audios.forEach(function (audio) {
+      //     $("<option/>", {
+      //       value: audio.value,
+      //       text: audio.name,
+      //     }).appendTo("#microphoneId")
+      //   })
+      //   devices.videos.forEach(function (video) {
+      //     $("<option/>", {
+      //       value: video.value,
+      //       text: video.name,
+      //     }).appendTo("#cameraId")
+      //   })
+      //   // To populate UI with different camera resolutions
+      //   resolutions.forEach(function (resolution) {
+      //     $("<option/>", {
+      //       value: resolution.value,
+      //       text: resolution.name
+      //     }).appendTo("#cameraResolution")
+      //   })
+      //   M.AutoInit()
+      // })
 
       var fields = ["appID", "channel"]
 
