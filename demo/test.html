@@ -77,7 +77,9 @@
             rtc.localStream.init(function () {
                 console.log("init local stream success");
                 // play stream with html element id "local_stream"
-                rtc.localStream.play("localStream");
+                rtc.localStream.play("localStream", {fit: "contain"}, function (errState) {
+                    alert('错误码：' + errState);
+                });
                 alert('test');
             }, function (err) {
                 console.error("init local stream failed ", err);
