@@ -558,6 +558,7 @@
         console.log("join")
         e.preventDefault();
         var params = serializeformData(); // Data is feteched and serilized from the form element.
+        alert(JSON.stringify(params)) ;
         if (validator(params, fields)) {
           join(rtc, params)
         }
