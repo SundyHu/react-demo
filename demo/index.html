@@ -556,7 +556,7 @@
       // This will start the join functions with all the configuration selected by the user.
       $("#join").on("click", function (e) {
         console.log("join")
-        e.preventDefault();
+        //e.preventDefault();
         var params = serializeformData(); // Data is feteched and serilized from the form element.
         alert(JSON.stringify(params)) ;
         if (validator(params, fields)) {
