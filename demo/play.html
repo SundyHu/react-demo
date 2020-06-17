@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Basic Live Broadcast</title>
+    <link rel="stylesheet" href="./assets/common.css"/>
+</head>
+<body class="agora-theme">
+<div class="navbar-fixed">
+    <nav class="agora-navbar">
+        <div class="nav-wrapper agora-primary-bg valign-wrapper">
+            <h5 class="left-align">Basic Live Broadcast</h5>
+        </div>
+    </nav>
+</div>
+
+<div class="video-grid" id="video">
+    <div class="video-view">
+        <div id="local_stream" class="video-placeholder"></div>
+        <div id="local_video_info" class="video-profile hide"></div>
+        <div id="video_autoplay_local" class="autoplay-fallback hide"></div>
+    </div>
+</div>
+<script src="vendor/jquery.min.js"></script>
+<script src="vendor/materialize.min.js"></script>
+<script src="https://cdn.agora.io/sdk/release/AgoraRTCSDK-3.1.0.js"></script>
+<script>
+    // rtc object
+    const rtc = {
+        client: null,
+        joined: false,
+        published: false,
+        localStream: null,
+        remoteStreams: [],
+        params: {}
+    };
+
+    // Options for joining a channel
+    const option = {
+        appID: "d7bef4a65cf24ff382e16409ae72fbe3",
+        channel: "demo",
+        uid: null,
+        token: "006d7bef4a65cf24ff382e16409ae72fbe3IABA6tAtpCa83Zk9sssqNkfTV+RTiGJoYcKiHfI3KWrKfKDfQtYAAAAAEACix5ok5sjqXgEAAQDkyOpe"
+    };
+
+    $(function () {
+
+        alert('可以出来不咯');
+    });
+</script>
+</body>
+</html>
