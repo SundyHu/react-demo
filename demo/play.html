@@ -16,13 +16,13 @@
     </nav>
 </div>
 
-<!--<div class="video-grid" id="video">-->
-<!--    <div class="video-view">-->
-<!--        <div id="local_stream" class="video-placeholder"></div>-->
-<!--        <div id="local_video_info" class="video-profile hide"></div>-->
-<!--        <div id="video_autoplay_local" class="autoplay-fallback hide"></div>-->
-<!--    </div>-->
-<!--</div>-->
+<div class="video-grid" id="video">
+    <div class="video-view">
+        <div id="local_stream" class="video-placeholder"></div>
+        <div id="local_video_info" class="video-profile hide"></div>
+        <div id="video_autoplay_local" class="autoplay-fallback hide"></div>
+    </div>
+</div>
 <script src="vendor/jquery.min.js"></script>
 <script src="vendor/materialize.min.js"></script>
 <script src="https://cdn.agora.io/sdk/release/AgoraRTCSDK-3.1.0.js"></script>
@@ -67,7 +67,6 @@
             rtc.client.on("stream-added", function (evt) {
                 let remoteStream = evt.stream;
                 let id = remoteStream.getId();
-                alert('fsfsfsfsfs ' + id);
                 if (id !== rtc.params.uid) {
                     rtc.client.subscribe(remoteStream, function (err) {
                         console.log("stream subscribe failed", err);
@@ -79,6 +78,8 @@
             rtc.client.on("stream-subscribed", function (evt) {
                 let remoteStream = evt.stream;
                 let id = remoteStream.getId();
+
+                alert(' the remote id is : ' + id);
                 // Add a view for the remote stream.
                 addView(id);
                 // Play the remote stream.
