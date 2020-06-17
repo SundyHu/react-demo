@@ -79,6 +79,12 @@
             console.log("init local stream success");
             // play stream with html element id "local_stream"
             rtc.localStream.play("local_stream");
+
+            rtc.client.publish(rtc.localStream, function (err) {
+                console.log("publish failed");
+                alert('发布失败');
+                console.error(err);
+            });
         }, function (err) {
             console.error("init local stream failed ", err);
         });
