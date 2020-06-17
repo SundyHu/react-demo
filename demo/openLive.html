@@ -79,7 +79,7 @@
             console.log("init local stream success");
             // play stream with html element id "local_stream"
             rtc.localStream.play("local_stream");
-            document.getElementById("video" + rtc.localStream.id).controls = true;
+            //document.getElementById("video" + rtc.localStream.id).controls = true;
 
             rtc.client.publish(rtc.localStream, function (err) {
                 console.log("publish failed");
