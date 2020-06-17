@@ -48,7 +48,7 @@
     };
 
     // Create a client
-    rtc.client = AgoraRTC.createClient({mode: "rtc", codec: "h264"});
+    rtc.client = AgoraRTC.createClient({mode: "live", codec: "h264"});
 
     // Initialize the client
     rtc.client.init(option.appID, function () {

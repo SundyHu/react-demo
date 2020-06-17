@@ -16,13 +16,13 @@
     </nav>
 </div>
 
-<div class="video-grid" id="video">
-    <div class="video-view">
-        <div id="local_stream" class="video-placeholder"></div>
-        <div id="local_video_info" class="video-profile hide"></div>
-        <div id="video_autoplay_local" class="autoplay-fallback hide"></div>
-    </div>
-</div>
+<!--<div class="video-grid" id="video">-->
+<!--    <div class="video-view">-->
+<!--        <div id="local_stream" class="video-placeholder"></div>-->
+<!--        <div id="local_video_info" class="video-profile hide"></div>-->
+<!--        <div id="video_autoplay_local" class="autoplay-fallback hide"></div>-->
+<!--    </div>-->
+<!--</div>-->
 <script src="vendor/jquery.min.js"></script>
 <script src="vendor/materialize.min.js"></script>
 <script src="https://cdn.agora.io/sdk/release/AgoraRTCSDK-3.1.0.js"></script>
@@ -48,7 +48,7 @@
     $(function () {
 
         // Create a client
-        rtc.client = AgoraRTC.createClient({mode: "rtc", codec: "h264"});
+        rtc.client = AgoraRTC.createClient({mode: "live", codec: "h264"});
 
         // Initialize the client
         rtc.client.init(option.appID, function () {
@@ -67,6 +67,7 @@
             rtc.client.on("stream-added", function (evt) {
                 let remoteStream = evt.stream;
                 let id = remoteStream.getId();
+                alert('fsfsfsfsfs ' + id);
                 if (id !== rtc.params.uid) {
                     rtc.client.subscribe(remoteStream, function (err) {
                         console.log("stream subscribe failed", err);
