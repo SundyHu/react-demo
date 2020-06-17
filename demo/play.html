@@ -83,7 +83,8 @@
                 addView(id);
                 // Play the remote stream.
                 remoteStream.play("remote_video_" + id);
-                $("#remote_video_" + id).setAttribute("controls", "true");
+
+                document.getElementById("video" + id).controls = true;
                 console.log('stream-subscribed remote-uid: ', id);
             });
 
