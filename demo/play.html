@@ -42,18 +42,18 @@
         appID: "d7bef4a65cf24ff382e16409ae72fbe3",
         channel: "demo",
         uid: null,
-        token: "006d7bef4a65cf24ff382e16409ae72fbe3IABA6tAtpCa83Zk9sssqNkfTV+RTiGJoYcKiHfI3KWrKfKDfQtYAAAAAEACix5ok5sjqXgEAAQDkyOpe"
+        token: "006d7bef4a65cf24ff382e16409ae72fbe3IADjVSVnOEJohBQItWuCMSFj1PFeTID4G3CCaagO2VLk7KDfQtYAAAAAEABQow6lZBHsXgEAAQBjEexe"
     };
 
     $(function () {
-
-        // Create a client
+        // 创建客户端,编码取值为：h264,vp8
         rtc.client = AgoraRTC.createClient({mode: "live", codec: "h264"});
 
         // Initialize the client
         rtc.client.init(option.appID, function () {
             console.log("init success");
 
+            //设置角色为观众
             rtc.client.setClientRole("audience");
         }, (err) => {
             console.error(err);
